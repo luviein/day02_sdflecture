@@ -1,43 +1,43 @@
 package sg.edu.nus.iss;
 
-public class Bicycle {
+public class Bicycle implements Startable {
     private int gear;
     private int speed;
 
     public Bicycle() {
-    } 
 
-    
+        this.gear = 5;
+        this.speed = 5; //default value is 5
+    }
 
     public Bicycle(int gear, int speed) {
         this.gear = gear;
         this.speed = speed;
     }
 
-
-
     public int getGear() {
         return gear;
     }
+
     public void setGear(int gear) {
         this.gear = gear;
     }
+
     public int getSpeed() {
         return speed;
     }
+
     public void setSpeed(int speed) {
         this.speed = speed;
     }
-    
-    public void applyBreak(int decreaseValue) {
-        speed -= decreaseValue;
-    }
 
-    public void speedUp(int increaseValue) {
-        speed += increaseValue;
-    }
+    // public void applyBreak(int decreaseValue) {
+    //     speed -= decreaseValue;
+    // }
 
-
+    // public void speedUp(int increaseValue) {
+    //     speed += increaseValue;
+    // }
 
     @Override
     public int hashCode() {
@@ -47,8 +47,6 @@ public class Bicycle {
         result = prime * result + speed;
         return result;
     }
-
-
 
     @Override
     public boolean equals(Object obj) {
@@ -66,12 +64,19 @@ public class Bicycle {
         return true;
     }
 
-
-
     @Override
     public String toString() {
-        return "Bicycle [gear=" + gear + ", speed=" + speed + "]";
+        return "Bicycle [gear=" + gear + ", speed=" + speed + "] ";
     }
-    
-    
+
+    @Override
+    public void applyBreak(int decreaseValue) {
+        speed -= decreaseValue;
+    }
+
+    @Override
+    public void speedUp(int increaseValue) {
+        speed += increaseValue;
+    }
+
 }
